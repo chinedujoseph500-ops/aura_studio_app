@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+html { scroll-behavior: smooth; }
+body { background: #f7f5f2; color: #111111; }
+section { scroll-margin-top: 4rem; }
+
+/* soft floating "aura" blobs in the hero */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-28px) scale(1.06); }
+}
+.animate-float { animation: float 9s ease-in-out infinite; }
+.animate-float-slow { animation: float 13s ease-in-out infinite reverse; }
+
+/* gentle entrance for hero text */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.fade-up { animation: fadeUp 0.9s ease both; }
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-float, .animate-float-slow, .fade-up { animation: none; }
+}
